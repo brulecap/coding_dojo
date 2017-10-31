@@ -1,0 +1,107 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: arial;
+	font-size: 0.93em;
+}
+
+h1, h2, p , a {
+	padding: 5px;
+}
+
+h1 {
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+a img {
+	height: 25px;
+	margin: 5px;
+	vertical-align: middle;
+}
+
+button {
+	background-color: #407d61;
+	background-color: #4CAF50;
+	border-radius: 7px;
+	color: #ffffff;
+	font-size: 16px;
+	border: 1px #28523f;
+	box-shadow: 1px 1px 1px #888888;
+	display: block;
+	margin: 3px 70px 20px;
+}
+
+header {
+	background-color: #f3f3f3;
+}
+
+header h1, header h2 {
+	display: inline-block;
+}
+
+header h2 {
+	margin-left: 370px;
+}
+
+footer a {
+	text-decoration: underline;
+	color: black;
+}
+
+footer {
+	text-align: center;
+}
+
+.no_decoration {
+	text-decoration: none;
+}
+
+.blurb_paragraph {
+	height: 180px;
+}
+
+.technology_logo {
+	height: 35px;
+	padding: 5px;	
+}
+
+.companies h2 {
+	color: #ffffff;
+	background: linear-gradient(to top,#b3b2b6,#878593,#b3b2b6);
+	margin: 0;
+}
+
+.companies img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.companies {
+	background: linear-gradient(to left, #d8c9d7 , #fbfafa);
+	display: inline-block;
+    width: 270px;
+    margin: 10px 20px;
+}
+
+#me img {
+	height: 250px;
+	margin: 20px;
+	border: 4px solid #c0c0c0;
+}
+
+#me div {
+	height: 250px;
+	margin: 20px;
+	width: 450px;
+	float: right;
+}
+
+
+#content {
+	background: radial-gradient(#ffffff 0%, #1b0b0f 90%);
+}
+
+#wrapper {
+	width: 940px;
+	margin: 0 auto;
+}

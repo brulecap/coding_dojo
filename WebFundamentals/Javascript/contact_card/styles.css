@@ -1,0 +1,114 @@
+/*CSS reset*/
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: arial, sans serif;
+}
+
+header {
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	margin:30px 0 0 25px;
+	display:inline-block;
+}
+
+a:hover {
+	cursor: pointer;
+	color: green;
+}
+
+h1 {
+	display: inline-block;
+	margin: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid black;
+}
+
+h2 {
+	display: inline-block;
+	margin: 25px;
+	border-bottom: 1px solid black;
+}
+
+h3 {
+	margin-left: 20px;
+}
+
+input[type="submit"] {
+	margin: 20px 0 0 0;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+	cursor: pointer;
+	color: green;
+}
+
+label[for="description"] {
+	display: block;
+	margin: 25px 0 5px 25px
+}
+
+input[type="submit"] {
+	margin-left: 25px;
+}
+
+#wrapper {
+	background-color: #c7c7c7;
+	width: 900px;
+	height: auto;
+	margin: 0 auto;
+	display:block;
+}
+
+#contact_form {
+	display: inline-block;
+	width: 300px;
+	margin-bottom: 75px;
+}
+
+#contact_form p {
+	text-align: right;
+	margin: 5px 20px 5px 0px;
+}
+
+#contact_form label {
+	margin-right: 5px;
+}
+
+#description {
+	margin-left: 25px;
+	width: 255px;
+	height: 70px;
+}
+
+#contacts {
+	display: inline-block;
+	width: 400px;
+	vertical-align: top;
+	margin: 25px 0 0 190px;
+}
+
+#contacts div {
+	width: 200px;
+	height: 100px;
+	margin: 20px 0 20px 150px;
+	border: 1px solid black;
+	padding: 10px;
+	background-color: white;
+	overflow: auto;
+}
+
+.error {
+	color: red;
+	font-size: 0.8em;
+	margin-bottom: 25px;
+}

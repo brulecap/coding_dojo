@@ -1,0 +1,67 @@
+/*CSS reset*/
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: arial, sans serif;
+}
+
+ul {
+	margin-left: 40px;
+	font-size: 0.9em;
+}
+
+h1 {
+	display: inline-block;
+	margin: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid black;
+}
+
+h2 {
+	text-align: center;
+}
+
+h3, p {
+	margin: 10px;
+}
+
+.selected {
+	box-shadow:0px 12px 22px 1px #333;
+}
+
+#wrapper {
+	background-color: #c7c7c7;
+	width: 900px;
+	height: auto;
+	margin: 0 auto;
+	display:block;
+}
+
+#sprites {
+	margin-left: 10px;
+	width: 70%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#content {
+	display: inline-block;
+	width: 20%;
+	border: 20px solid red;
+	margin: 0 10px 10px 0;
+}
+
+#content img {
+	margin: 0 auto;
+	display: block;
+}
+
+#loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -16px 0px 0px -16px;
+}

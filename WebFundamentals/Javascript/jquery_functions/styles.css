@@ -1,0 +1,102 @@
+/*CSS reset*/
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: arial, sans serif;
+}
+
+h1 {
+	text-align: center;
+	margin: 0px 20px 30px 20px;
+	padding-top: 30px;
+	border-bottom: 2px solid black;
+}
+
+div {
+	vertical-align: top;
+}
+
+ul {
+	margin: 0 25px 50px 25px;
+	list-style: none;
+	padding: 20px 0 30px 0;
+	border-right: 1px solid #000000;
+}
+
+li {
+	margin: 10px 10px;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+button:disabled {
+	color: #666666;
+	cursor: not-allowed;
+}
+
+li:hover {
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.inline_block {
+	display:inline-block;
+}
+
+.display_none {
+	display: none;
+}
+
+#wrapper {
+	background-color: #c7c7c7;
+	width: 900px;
+	height: 600px;
+	margin: 0 auto;
+	display:block;
+}
+
+#left_nav {
+	display: inline-block;
+}
+
+#toggle_slide button {
+	vertical-align: top;
+	padding: 10px 5px;
+	margin-top: 25px;
+	border-radius: 5px;
+}
+
+#toggle_slide img {
+	width: 75px;
+	margin: 5px 0 20px 50px;
+}
+
+#text_manipulation p {
+	vertical-align: top;
+}
+
+#text_manipulation div {
+	display: inline-block;
+	width: 60px;
+}
+
+#text_manipulation button {
+	padding: 5px 5px;
+	margin: 5px 0;
+	width: 60px;
+	border-radius: 5px;
+}
+
+#text_manipulation input {
+	margin: 100px 0 0 70px;
+	vertical-align: top;
+}
+
+#text_manipulation h2 {
+	margin: 0 0 10px 120px;
+}

@@ -1,0 +1,35 @@
+/*CSS reset*/
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: arial, sans serif;
+}
+
+h1 {
+	display: inline-block;
+	margin: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid black;
+}
+
+#wrapper {
+	background-color: #c7c7c7;
+	width: 900px;
+	height: 600px;
+	margin: 0 auto;
+	display:block;
+}
+
+#content {
+	width: 300px;
+	margin: 30px 0 0 100px;
+}
+
+#content img {
+	display: inline-block;
+	width: 300px;
+	margin-top: -4px; /*Removes space between images*/
+}

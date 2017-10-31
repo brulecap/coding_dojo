@@ -1,0 +1,190 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: arial;
+}
+
+input[type="text"] {
+	line-height: 28px;
+	border-style: inset;
+	border-width: 3px;
+	color: #c1c1c1;
+	text-align: center;
+}
+
+input[type="submit"] {
+	background-color: #245076;
+	border-radius: 5px;
+	text-align: center;
+	padding: 5px 10px;
+	color: #ffffff;
+	border: 2px solid #bebebf;
+	border-style: outset;
+	margin-left: 5px;
+}
+
+header {
+	font-size: 0.8em;
+}
+
+header img {
+	width: 400px;
+}
+
+header div {
+	display: inline-block;
+	vertical-align: top;
+	margin: 5px 15px 5px 260px;
+}
+
+header div div {
+	padding: 12px 30px 12px 35px;
+	background-color: #444444;
+	border-radius: 10px;
+	margin: 5px 0;
+	box-shadow: 1px 1px 1px black;
+}
+
+header p {
+	color: #ffffff;
+	margin: 5px 0 0 110px;
+}
+
+header a {
+	color: #ceaf05;
+	margin:0 5px;
+}
+
+nav {
+	padding: 10px 25px;
+	background-color: #477ead;
+	margin: 0 35px 0 65px;
+	border-radius: 5px;
+	text-align: center;
+	box-shadow: 1px 1px 1px black;
+}
+
+nav a {
+	color: #f4f7fa;
+	text-decoration: none;
+	margin: 20px;
+	font-size: 1.35em;
+}
+
+footer {
+	margin-top: 50px;
+}
+
+footer, footer a {
+	text-align: center;
+	color: #79acd9;
+}
+
+footer a {
+	text-decoration: none;
+	margin: 20px;
+}
+
+footer p {
+	font-size: 0.6em;
+	margin: 10px 0 5px 0;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 970px;
+	background: linear-gradient(to top,#3375ac,#245076);
+}
+
+#content div {
+	display: inline-block;
+}
+
+#content, #content a  {
+	color: #f4f7fa;
+}
+
+#content ul, #content p {
+	text-align: center;
+}
+
+#content ul a {
+	padding-left: 5px;
+}
+
+#content ul {
+	display: inline-block;
+	margin: 10px 0 0 160px;
+	list-style-type: none;
+	vertical-align: top;
+}
+
+#content p {
+	width: 600px;
+	margin: 20px 0 0 40px;
+	vertical-align: top;
+	font-size: 0.86em;
+}
+
+#content ul li {
+	margin: 5px 5px 10px 5px;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.small {
+	font-size: 0.5em; /*Remember this cascades. i.e It is relative to font-size higher up.*/	
+}
+
+.big {
+	font-size: 1.3em; /*Remember this cascades. i.e It is relative to font-size higher up.*/	
+}
+
+.yellow {
+	color: #edc834;
+}
+
+
+#information {
+	background-color: #ffffff;
+	color: black;
+	text-align: center;
+}
+
+#information a {
+	color: #81b0d9;
+	text-decoration: none;
+	font-size: 0.8em;
+}
+
+ .info {
+	display: inline-block;
+	width: 400px;
+	padding-top: 5px;
+	border-top: 4px solid #75a8d6;
+	vertical-align: top;
+	margin: 10px 10px;
+}
+
+.info p {
+	width: 330px;;
+	font-size: 0.8em;
+}
+
+.info h1 {
+	font-size: 1.0em;
+}
+
+.list {
+	width: 220px;
+	margin-left: 60px;
+}
+
+.list ul {
+	list-style-type: square;
+}

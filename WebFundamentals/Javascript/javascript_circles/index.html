@@ -1,0 +1,267 @@
+<html>
+<head>
+	<title>Javascript Box - OOP demo</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+	<svg id="svg" xmlns="http://www.w3.org/2000/svg"></svg>
+
+	<script>
+	function Circle(cx, cy, r, html_id)
+	{
+		var html_id = html_id;
+		this.info = { cx: cx,  cy: cy, r: r, html_id: html_id };
+		
+		//private function that generates a random number
+		var randomNumberBetween = function(min, max){
+			return Math.random()*(max-min) + min;
+		}
+
+		this.initialize = function(){
+			//give a random velocity for the circle
+			this.info.velocity = {
+				x: randomNumberBetween(-3,3),
+				y: randomNumberBetween(-3,3)
+			}
+			console.log(this.info.velocity.x)
+
+			//create a circle 
+			var circle = makeSVG('circle', 
+				{ 	cx: this.info.cx,
+				  	cy: this.info.cy,
+				  	r:  this.info.r,
+				  	id: html_id,
+				  	style: "fill: black"
+				});
+
+			document.getElementById('svg').appendChild(circle);
+			this.put_back_on_screen();
+		}
+
+		this.updateDirection = function(x_multilpler, y_multiplier) {
+			this.info.velocity.x = this.info.velocity.x * x_multilpler;
+			this.info.velocity.y = this.info.velocity.y * y_multiplier;
+		}
+
+		this.put_back_on_screen = function() {
+			/*
+				Detected that the radius of the cirle is off the screen. Attempt to put it back on the screen.
+				Still having some difficulties here. Some circles still get stuck off the side of the screen.
+			*/
+			var padding = 40;
+			if ((this.info.cx+this.info.r) > document.body.clientWidth) {
+				this.info.cx = document.body.clientWidth - (this.info.r + padding);
+			} else if ((this.info.cx-this.info.r) < 0) {
+				this.info.cx = (this.info.r + padding);
+			} if ((this.info.cy+this.info.r) > document.body.clientHeight) {
+				this.info.cy = document.body.clientWidth - (this.info.r + padding);
+			} else if ((this.info.cy-this.info.r) < 0) {
+				this.info.cy = (this.info.r + padding);
+			}
+		}
+
+		this.update = function(time){
+			var el = document.getElementById(html_id);
+			//see if the circle is going outside the browser. if it is, reverse the velocity
+			if( (this.info.cx+this.info.r) > document.body.clientWidth || (this.info.cx-this.info.r) < 0)
+			{
+				this.updateDirection(-1 ,1);
+			}
+			if( (this.info.cy+this.info.r) > document.body.clientHeight || (this.info.cy-this.info.r) < 0)
+			{
+				this.updateDirection(1 ,-1);
+			}
+
+			this.info.cx = this.info.cx + this.info.velocity.x*time;
+			this.info.cy = this.info.cy + this.info.velocity.y*time;
+
+			el.setAttribute("cx", this.info.cx);
+			el.setAttribute("cy", this.info.cy);
+		}
+
+		//creates the SVG element and returns it
+		var makeSVG = function(tag, attrs) {
+	        var el= document.createElementNS('http://www.w3.org/2000/svg', tag);
+	        for (var k in attrs)
+	        {
+	            el.setAttribute(k, attrs[k]);
+	        }
+	        return el;
+	    }
+
+	    this.initialize();
+	}
+
+	function PlayGround()
+	{
+		var counter = 0;  //counts the number of circles created
+		var circles = [ ]; //array that will hold all the circles created in the app
+		document.getElementById('svg').style.width = "100%";
+	    document.getElementById("svg").style.height = "100%";
+
+	    var get_absolute_difference = function(p1,p2) {
+	    	/*
+	    		Get the absolute distance between 2 points on a line.
+	    		Note: 1 or both can have a negative value.
+	    		i.e. - Distance between -1 and 2 is 3.
+	    			   Distance between -1 and -7 is 6.
+	    	*/
+	    	if (((p1 <= 0) && (p2 <= 0)) || ((p1 >= 0) && (p2 >= 0))) {
+				return Math.abs(Math.abs(p1) - Math.abs(p2));
+			} else {
+				return Math.abs(p1 - p2);
+			}
+
+	    }
+
+	    var pythagorean_distance = function(c1, c2) {
+	    	/*
+	    		A shout out to Pythagoras. 
+	    	*/
+			return Math.sqrt(Math.pow(get_absolute_difference(c1.info.cx, c2.info.cx),2) 
+						   + Math.pow(get_absolute_difference(c1.info.cy, c2.info.cy),2));
+	    }
+
+	    var remove_from_array = function(circle1) {
+	    	for (i=0; i<circles.length; i++) {
+	    		if (circle1.info.html_id === circles[i].info.html_id) {
+	    			circles.splice(i, 1);
+	    		}
+	    	}
+	    }
+
+	    var disappear = function(circle1, circle2) {
+	    	// Remove the circles from the dom
+			document.getElementById(circle1.info.html_id).remove();
+			document.getElementById(circle2.info.html_id).remove();
+			// Remove the circles from the circle array
+			remove_from_array(circle1);
+			remove_from_array(circle2);
+	    }
+
+	    var bounce = function(circle1, circle2) {
+			/*
+				Need a more elegant way to do this. Should use some physics to figure out the
+				direction change based on the direction vectors of the 2 circles and the mass
+				as a function of their radius. Seems like a great place for some matrix
+				multiplication. See: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Matrix_math_for_the_web
+			*/
+			circle1.updateDirection(-1, 1);
+			circle2.updateDirection(1, -1);
+	    }
+
+		var ended = function(id) {
+			/*
+				Callback function to be called when the color change animation completes.
+				Works great in example.html, but is called immediately here. A clue to what
+				is going on perhaps? 
+			*/
+			console.log("ended!!!!!!!!!!!!!!!!!!!!!!!!: ", id, " ", document.getElementById(id).childNodes[0].getAttribute("to"));
+			document.getElementById(id).removeChild(document.getElementById(id).childNodes[0]);
+		}
+
+	    var merge = function(circle1, circle2) {
+			/*
+				Change radius of one element to sum of radiuses and remove other element.
+				Having an issue with a circle getting stuck on the edge of the screen. I try
+				to put it back on the screen, but there is something wonky happening.
+			*/
+			circle1.info.r = ((circle1.info.r + circle2.info.r)>150 ? 150:circle1.info.r + circle2.info.r);
+			document.getElementById(circle1.info.html_id).style.fill = "black";
+			document.getElementById(circle1.info.html_id).setAttribute("r", circle1.info.r);
+			//The new radius may have taken the circle out of the screen. Try to put it fully back on the screen.
+			circle1.put_back_on_screen();
+			circle1.updateDirection(-1,-1);
+			remove_from_array(circle2);
+			document.getElementById(circle2.info.html_id).remove();
+	    }
+
+	    var change_color = function(circle1, circle2) {
+			/*
+				I am trying to make the color change an animation. The code below works fine for a static
+				circle (see: example1.html), but when I try to implement it here the color changes immediately.
+			*/
+			console.log("Change color");
+			var animation = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+			// set its attributes
+			animation.setAttributeNS(null, 'attributeType', 'XML');
+			animation.setAttributeNS(null, 'attributeName', 'fill');
+			animation.setAttributeNS(null, 'to', "blue");
+			animation.setAttributeNS(null, 'dur', '4s');
+//			animation.setAttributeNS(null, 'repeatCount', 1);
+			animation.setAttributeNS(null, 'fill', 'freeze');
+//			animation.setAttributeNS(null,"onend", ended(circle1.info.html_id));
+
+			// link the animation to the target
+			document.getElementById(circle1.info.html_id).appendChild(animation);
+
+			circle1.updateDirection(-1, 1);
+			circle2.updateDirection(1, -1);
+	    }
+
+		var checkCollision = function(circle1, circle2) {
+			if (pythagorean_distance(circle1, circle2) < (circle1.info.r+circle2.info.r)) {
+				/*
+					Merge, bounce, change color, or disappear.
+					Use a random number to figure out which one.
+				*/
+				var choice = Math.floor((Math.random() * 4) + 1);
+				if (choice === 1) {
+					bounce(circle1, circle2);
+				} else if (choice === 2) {
+					merge(circle1, circle2);
+				} else if (choice === 3) {
+					change_color(circle1, circle2);
+				} else {
+					disappear(circle1, circle2);
+				}
+			}
+		}
+
+		//a loop that updates the circle's position on the screen
+		this.loop = function() {
+			for(var i=0; i<circles.length; i++) {
+				for (var j=i+1; j<circles.length; j++) {
+				  checkCollision(circles[j], circles[i]);
+				}
+				circles[i].update(1);
+			}
+		}
+
+		this.createNewCircle = function(x,y,r){
+			console.log(r);
+			var new_circle = new Circle(x,y,r,counter++);
+			new_circle.put_back_on_screen
+			circles.push(new_circle);
+			console.log("circles ", circles.length);
+		}
+
+		//create one circle when the game starts
+		this.createNewCircle(document.body.clientWidth/2, document.body.clientHeight/2, 10);
+	}
+
+	var playground = new PlayGround();
+	setInterval(playground.loop, 50);
+
+	var mousedown_time;
+
+	function getTime(){
+		var date = new Date();
+		return date.getTime();
+	}
+
+	document.onmousedown = function(e){
+		mousedown_time = getTime();
+	}
+
+	document.onmouseup = function(e){
+		time_pressed = getTime() - mousedown_time;
+		var r = 10;
+		var temp = Math.ceil(time_pressed / 50) * 2;
+		playground.createNewCircle(e.x,e.y,(temp>150 ? 150:temp));
+	}	
+	</script>
+
+</body>
+</html>

@@ -7,14 +7,14 @@ app = Flask(__name__)                     # Global variable __name__ tells Flask
                                           # whenever we send a request to localhost:5000/ we will run
                                           # the following "hello_world" function.
 def home():
-  return render_template("index.html")    # Render the template and return it!
+  return render_template("index.html", home="heart")    # Render the template and return it!
 
 @app.route('/ninjas')
 def ninjas():
-  return render_template("ninjas.html")
+  return render_template("ninjas.html", ninja_type="coding dojo")
 
 @app.route('/dojos/new')
 def new():
-  return render_template("whats_new.html")
+  return render_template("whats_new.html", class_type="flask")
 
 app.run(debug=True)						 # Run the app in debug mode.

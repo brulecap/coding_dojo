@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Counter Assignment</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Counter Assignment">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>Counter</h1>
+			<p>{{session['count']}} time{{"s" if session['count']!=1}}</p>
+			<a href="/double">Ninja</a>
+			<a href="/reset">Hacker</a>
+		</div>
+	</body>
+</html>

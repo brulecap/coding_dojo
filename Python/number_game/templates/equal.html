@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>The Great Number Game! Yayyyyy!!!!!</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="The Great Number Game, correct">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css')}}">
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>Welcome to the Great Number Game!</h1>
+			<p>I am thinking of a number between 1 and 100</p>
+			<p>Take a guess!</p>
+			<div id="correct">
+				<h2>{{session['number']}} was the number!</h2>
+				<a href="/">Play again!</a>
+			</div>
+		</div>
+	</body>
+</html>

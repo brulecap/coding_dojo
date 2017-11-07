@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Ninja Money</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Ninja Money Game">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>Your Gold:</h1>
+			<p id="display_gold">{{session['gold']}}</p>
+			<a href="/">Reset the game</a>
+			<div class="buildings">
+				<h2>Farm</h2>
+				<p>(earns 10-20 golds)</p>
+				<form action="/process_money" method="post">
+					<input type="hidden" name="building" value="farm" />
+					<input type="submit" value="Find Gold!"/>
+				</form> 
+			</div>
+			<div class="buildings">
+				<h2>Cave</h2>
+				<p>(earns 5-10 golds)</p>
+				<form action="/process_money" method="post">
+					<input type="hidden" name="building" value="cave" />
+					<input type="submit" value="Find Gold!"/>
+				</form> 
+			</div>
+			<div class="buildings">
+				<h2>House</h2>
+				<p>(earns 2-5 golds)</p>
+				<form action="/process_money" method="post">
+					<input type="hidden" name="building" value="house" />
+					<input type="submit" value="Find Gold!"/>
+				</form> 
+			</div>
+			<div class="buildings">
+				<h2>Casino</h2>
+				<p>(earns/takes 0-50 golds)</p>
+				<form action="/process_money" method="post">
+					<input type="hidden" name="building" value="casino" />
+					<input type="submit" value="Find Gold!"/>
+				</form> 
+			</div>
+			<div id="activities">
+				<!-- Store activities in session list? Loop through the list
+					 here and add each activity to a p tag? -->
+				{%for activity in session['activities']%}
+				{{activity|safe}}
+				{% endfor%}
+			</div>
+		</div>
+	</body>
+</html>

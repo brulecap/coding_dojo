@@ -2,12 +2,23 @@
 	<head>
 		<title>Dojo Survey</title>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-<!--		<link rel="stylesheet" type="text/css" href="../static/styles.css"> -->
 	</head>
 	<body>
 		<div id="wrapper">
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<p class="error">{{message}}</p>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
       		<form action='/result' method='post'>
-      			<label for="name">Your Name:</label><input type="text" name="name" id="name">
+      			<label for="name">Your Name:</label>
+{% if survey_results is defined and survey_results.name != "" %}
+      			<input type="text" name="name" id="name" value="{{survey_results.name}}">
+{% else %}
+				<input type="text" name="name" id="name">
+{% endif %}
       			<label for="location">Dojo Location:</label>
       			<select name="location" id="location">
 					<option value="San Jose" selected>San Jose</option>
@@ -26,7 +37,11 @@
 					<option value="PHP">PHP</option>
 				</select>
 				<label for="comment">Comment (optional):</label>
+{% if survey_results is defined and survey_results.comment != "" %}
+				<textarea name="comment" id="comment">{{survey_results.comment}}</textarea>
+{% else %}
 				<textarea name="comment" id="comment"></textarea>
+{% endif %}
 				<input type="submit" value="Submit">
 			</form>
 		</div>

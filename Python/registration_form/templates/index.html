@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title>Dojo Survey</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<div id="wrapper">
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class="flashes">
+    {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+      		<form action='/result' method='post'>
+      			<label for="first_name">First Name:</label>
+{% if results is defined and results.first_name != "" %}
+      			<input type="text" name="first_name" id="first_name" value="{{results.first_name}}">
+{% else %}
+				<input type="text" name="first_name" id="first_name">
+{% endif %}
+      			<label for="last_name">Last Name:</label>
+{% if results is defined and results.last_name != "" %}
+      			<input type="text" name="last_name" id="last_name" value="{{results.last_name}}">
+{% else %}
+				<input type="text" name="last_name" id="last_name">
+{% endif %}
+      			<label for="email">Email:</label>
+{% if results is defined and results.email != "" %}
+      			<input type="text" name="email" id="email" value="{{results.email}}">
+{% else %}
+				<input type="text" name="email" id="email">
+{% endif %}
+      			<label for="birthday">Birthday:</label>
+{% if results is defined and results.birthday != "" %}
+      			<input type="date" name="birthday" id="birthday" value="{{results.birthday}}">
+{% else %}
+				<input type="date" name="birthday" id="birthday">
+{% endif %}
+      			<label for="password">Password:</label>
+				<input type="password" name="password" id="password">
+      			<label for="confirm">Confirm password:</label>
+				<input type="password" name="confirm" id="confirm">
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Dojo Survey Index</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>Submitted Info</h1>
+			<h2>First Name:</h2>
+			<p>{{ results.first_name }}</p>
+			<h2>Last Name:</h2>
+			<p>{{ results.last_name }}</p>
+			<h2>Email:</h2>
+			<p>{{ results.email }}</p>
+			<h2>Birthday:</h2>
+			<p>{{ results.birthday}}
+			<h2>Password:</h2>
+			<p>Passwords matched</p>
+			<a href="/">Go Back</a>
+		</div>
+	</body>
+</html>

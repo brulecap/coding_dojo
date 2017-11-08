@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title>Ninjas</title>
+		<meta name="description" content="Ninjas">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	</head>
+	<body>
+		<div id="wrapper">
+{% if color == "blue" or color == "" %}
+			<img src="{{ url_for('static', filename='img/leonardo.jpg') }}" alt="Leonardo">
+{% endif %}
+{% if color == "orange" or color == "" %}
+			<img src="{{ url_for('static', filename='img/michelangelo.jpg') }}" alt="Michelangelo">
+{% endif %}
+{% if color == "red" or color == "" %}
+			<img src="{{ url_for('static', filename='img/raphael.jpg') }}" alt="Raphael">
+{% endif %}
+{% if color == "purple" or color == "" %}
+			<img src="{{ url_for('static', filename='img/donatello.jpg') }}" alt="Donatello">
+{% endif %}
+{# I don't like this last is statement. Too long, but I coculd not come up with a way to make this more concise. #}
+{% if color != "blue" and color != "orange" and color != "red" and color != "purple" and color != "" %}
+			<img src="{{ url_for('static', filename='img/notapril.jpg') }}" alt="Not April">
+{% endif %}
+
+		</div>
+	</body>
+</html>

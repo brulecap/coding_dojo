@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title>Success</title>
+		<meta name="description" content="Success">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	</head>
+		<body>
+			<div id="wrapper">
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+				<div id="success"><p>{{message}}</p></div>
+		{% endfor %}
+	{% else %}
+				<div id="error"><p>Something went wrong.</p></div>
+	{% endif %}
+{% endwith %}
+				<h1>Email Addresses Entered:</h1>
+				<form action="/delete" method="post">
+{% for email in emails: %}
+					<div>
+						<input type="checkbox" name="id" value="{{ email['id'] }}">
+						<p>{{ email['email_address'] }}</p>
+						<p>{{ email['modified_at'] }}</p>
+				    </div>
+{% endfor %}
+					<input type="submit" value="Delete Selected">
+				</form>
+				<a href="/">Add another email address</a>
+			</div>
+		</body>
+</html>

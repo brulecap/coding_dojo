@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="description" content="Edit Friend">
+		<title>Edit Friend</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="update_friend">
+				<form action="/update" method="POST">
+					<label for="first_name">First Name:<input type="text" name="first_name" id="first_name" value="{{ friend['first_name'] }}"></label>
+					<label for="last_name">Last Name:<input type="text" name="last_name" id="last_name" value="{{ friend['last_name'] }}"></label>
+					<label for="email">Email:<input type="text" name="email" id="email" value="{{ friend['email'] }}"></label>
+					<input type="hidden" name="id" value="{{ friend['id'] }}">
+					<input type="submit" value="Update">
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

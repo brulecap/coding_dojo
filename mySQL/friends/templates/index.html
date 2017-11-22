@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="description" content="Friends">
+		<title>Friends</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	</head>
+	<body>
+		<div id="wrapper">
+			<table>
+				<caption>Full Friends</caption>
+				<thead>
+					<tr >
+						<th class="name">First Name</th>
+						<th class="name">Last Name</th>
+						<th class="email">Email</th>
+						<th class="action">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+{% for friend in all_friends: %}
+					<tr class="{{ loop.cycle('odd', 'even') }}">
+						<td class="name">{{ friend['first_name'] }}</td>
+						<td class="name">{{ friend['last_name'] }}</td>
+						<td class="email">{{ friend['email'] }}</td>
+						<td class="action">
+								<a href="/friends/{{ friend['id'] }}/edit">Edit</a>
+							<form action="/friends/delete" method="POST">
+								<input type="hidden" name="id" value="{{ friend['id'] }}">
+								<input type="submit" value="Delete">
+							</form>
+						</td>
+					</tr>
+{% endfor %}
+				</tbody>
+			</table>
+			<div id="add_friend">
+				<form action="/friends" method="POST">
+					<label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
+					<label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label>
+					<label for="email">Email:<input type="text" name="email" id="email"></label>
+					<input type="submit" value="Add Friend">
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

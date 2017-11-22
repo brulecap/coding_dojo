@@ -1,0 +1,107 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: arial;
+}
+
+table {
+	border-collapse: collapse;
+	margin-bottom: 50px;
+}
+
+caption {
+	margin: 10px;
+	font-size: 1.5em;
+}
+
+thead {
+	background-color: #cccccc;
+}
+
+td, th {
+	text-align: left;
+}
+
+form {
+	display: inline-block;
+}
+
+input[type="submit"]  {
+	font-size: 0.9em;
+	margin: 0;
+	padding: 2px 4px;
+	background-color: #76a5af;
+	color: white;
+	border: 1px solid black;
+	box-shadow: 1px 1px 2px black;
+	cursor:pointer;
+}
+
+a {
+	font-size: 0.9em;
+	display: inline-block;
+	text-align: center;
+	margin: 0;
+	text-decoration: none;
+	padding: 2px 4px;
+	background-color: #76a5af;
+	color: white;
+	border: 1px solid black;
+	box-shadow: 1px 1px 2px black;
+}
+
+label {
+	display: block;
+}
+
+#add_friend {
+	text-align: right;
+	margin-right: 530px;
+}
+
+#add_friend input, #update_friend input {
+	margin: 0 0 10px 5px;
+}
+
+#update_friend {
+	margin-top: 45px;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 800px;
+	min-height: 300px;
+}
+
+.odd {
+	background-color: #eee;
+}
+
+.even {
+	background-color: white;
+}
+
+.name {
+	width: 140px;
+}
+
+.email {
+	width:150px;
+}
+
+.action {
+	width: 150px;
+	text-align: center;
+}
+
+.error {
+	margin: 10px 0;
+	padding-top: 5px;
+	background-color: red;
+	width: 250px;
+	height: 75px;
+	text-align: center;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="description" content="Friend Error">
+		<title>Friend Error</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	</head>
+	<body>
+		<div id="wrapper">
+			<div class="error">
+{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+		{% for category, message in messages %}
+				<p>{{ message }}</p>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+			</div>
+		<a href="/">Home</a>
+		</div>
+	</body>
+</html>

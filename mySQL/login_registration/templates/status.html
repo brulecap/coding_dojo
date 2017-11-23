@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="description" content="Login Registration Status">
+		<title>Login Registration Status</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	</head>
+	<body>
+		<div id="wrapper">
+{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+		{% for category, message in messages %}
+			<div class="{{ category }}"><p>{{message}}</p></div>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+		<a href="/">Home</a>
+		</div>
+	</body>
+</html>

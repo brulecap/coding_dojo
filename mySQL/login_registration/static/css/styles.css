@@ -1,0 +1,73 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: arial;
+}
+
+input[type="submit"]  {
+	font-size: 0.9em;
+	margin: 0;
+	padding: 2px 4px;
+	background-color: #76a5af;
+	color: white;
+	border: 1px solid black;
+	box-shadow: 1px 1px 2px black;
+	cursor:pointer;
+}
+
+a {
+	font-size: 0.9em;
+	display: inline-block;
+	text-align: center;
+	margin: 0;
+	text-decoration: none;
+	padding: 2px 4px;
+	background-color: #76a5af;
+	color: white;
+	border: 1px solid black;
+	box-shadow: 1px 1px 2px black;
+}
+
+label {
+	display: block;
+}
+
+.account {
+	text-align: right;
+	margin: 25px 200px 0 0;
+}
+
+.account input {
+	margin: 0 0 10px 5px;
+}
+
+.account P {
+	margin: 40px 0 15px 0;
+}
+
+#wrapper {
+	text-align: center;
+	margin: 0 auto;
+	width: 800px;
+	min-height: 300px;
+}
+
+.error, .success {
+	margin: 10px 0 40px 265px;
+	padding-top: 10px;
+	width: 250px;
+	min-height: 75px;
+	text-align: center;
+	color: white;
+}
+
+.error {
+	background-color: red;
+}
+
+.success {
+	background-color: green;
+}

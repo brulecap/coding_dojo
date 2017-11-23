@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="description" content="Registration">
+		<title>Registration</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	</head>
+	<body>
+		<div id="wrapper">
+			<div class="account">
+{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+		{% for category, message in messages %}
+				<div class="{{ category }}"><p>{{message}}</p></div>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+				<form action="/create_account" method="POST">
+					<label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
+					<label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label>
+					<label for="email">Email:<input type="text" name="email" id="email"></label>
+					<label for="password">Password:<input type="password" name="password" id="password"></label>
+					<label for="confirm_password">Confirm Password:<input type="password" name="confirm_password" id="confirm_password"></label>
+					<input type="submit" value="Update">
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="description" content="The Coding Dojo Wall">
+		<title>The Coding Dojo Wall</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	</head>
+	<body>
+		<div id="wrapper">
+			<header>
+				<h1>Coding Dojo Wall</h1>
+{% if session.get('id') %}
+				<p class="logged_in">Welcome {{session.first_name}}</p>
+				<a class="logged_in" href='/logout'>Logout</a>
+{% else %}
+				<a class="logged_out" href='/login'>Login</a>
+{% endif %}
+			</header>
+{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+		{% for category, message in messages %}
+			<div class="{{ category }}"><p>{{message}}</p></div>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+			<div id="content">
+				<h2>Post a message</h2>
+				<form id="message" action="/message" method="POST">
+					<textarea placeholder="Type message here" name="message" id="message"></textarea>
+					<input type="hidden" name="type" value="message">
+					<input type="submit" value="Post a message">
+				</form>
+{% for message_dict in content %}
+				<div class="messages">
+					<h3>{{ message_dict.message_owner }} - {{ custom_strftime('%B {S}, %Y', message_dict.message_date) }}</h3>
+					<p>{{ message_dict.message }}</p>
+	{% for comment_dict in message_dict.comments %}
+					<div class="comments">
+						<h5>{{ comment_dict.comment_owner }} - {{ custom_strftime('%B {S}, %Y', comment_dict.comment_date) }}</h5>
+						<p>{{ comment_dict.comment }}</p>
+					</div>
+	{% endfor %}
+					<h4>Post a comment</h4>
+					<form id="comment" action="/message" method="POST">
+						<textarea placeholder="Type comment here" name="comment" id="comment"></textarea>
+						<input type="hidden" name="type" value="comment">
+						<input type="hidden" name="message_id" value="{{ message_dict.id }}">
+						<input type="submit" value="Post a comment">
+					</form>
+				</div>
+{% endfor %}
+		</div>
+	</body>
+</html>

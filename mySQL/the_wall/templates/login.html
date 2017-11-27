@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="description" content="The Wall Login">
+		<title>The Wall Login</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	</head>
+	<body>
+		<div id="wrapper">
+{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+		{% for category, message in messages %}
+			<div class="{{ category }}"><p>{{message}}</p></div>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+			<div class="account">
+				<form action="/login" method="POST">
+					<label for="email">Email:<input type="text" name="email" id="email"></label>
+					<label for="password">Password:<input type="password" name="password" id="password"></label>
+					<input type="submit" value="Login">
+				</form>
+				<p class="create_text">Don't have an account? Click Create Account below</p>
+				<a href="/create_account">Create Account</a>
+			</div>
+		</div>
+	</body>
+</html>

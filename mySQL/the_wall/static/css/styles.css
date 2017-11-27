@@ -1,0 +1,149 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: arial;
+}
+
+input[type="submit"]  {
+	font-size: 0.9em;
+	margin: 0;
+	padding: 2px 4px;
+	background-color: #76a5af;
+	color: white;
+	border: 1px solid black;
+	box-shadow: 1px 1px 2px black;
+	cursor:pointer;
+}
+
+a {
+	text-decoration: none;
+	color: #81a7c8;
+}
+
+h2 {
+	font-size: 1.0em;
+	margin-bottom: 5px;
+}
+
+header {
+	border-bottom: 1px solid black;
+}
+
+header h1, header p, header a {
+	display: inline-block;
+}
+
+header h1 {
+	font-size: 1.1em;
+	padding: 10px 20px;
+}
+
+p.logged_in {
+	margin-left: 420px;
+}
+
+a.logged_in {
+	margin-left: 5px;
+}
+
+a.logged_out {
+	margin-left: 510px;
+}
+
+label {
+	display: block;
+}
+
+.account {
+	text-align: right;
+	margin: 25px 200px 0 0;
+}
+
+.account input {
+	margin: 0 0 10px 5px;
+}
+
+.create_text {
+	margin: 40px 0 15px 0;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 800px;
+	min-height: 300px;
+}
+
+.error, .success {
+	margin: 10px 0 40px 265px;
+	padding-top: 10px;
+	width: 250px;
+	min-height: 75px;
+	text-align: center;
+	color: white;
+}
+
+.error {
+	background-color: red;
+}
+
+.success {
+	background-color: green;
+}
+
+#content {
+	padding: 40px 40px;
+}
+
+#message textarea {
+	height: 75px;
+	width: 700px;
+}
+
+#message input {
+	margin: 5px 0 0 590px;
+}
+
+#message input[type="submit"] {
+	background-color: #2b78e4;
+}
+
+#comment textarea {
+	height: 50px;
+	width: 670px;
+}
+
+#comment input[type="submit"] {
+	background-color: #009e0f;
+}
+
+#comment input {
+	margin: 5px 0 0 560px;
+}
+
+.messages h3 {
+	margin: 20px 0;
+	font-size: 1.0em;
+}
+
+.messages h4, .messages form {
+	margin: 5px 30px;
+}
+
+.messages p {
+	margin: 0 30px;
+}
+
+.comments {
+	margin: 10px 0 0 35px;
+}
+
+.comments h5 {
+	margin: 10px;
+}
+
+.comments p {
+	margin: 10px;
+}

@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Coding Dojo Survey Resut</title>
+		<meta name="description" content="Coding Dojo Survey Result">
+{% load static %}
+		<link rel="stylesheet" href="{% static 'css/styles.css' %}" media="screen" title="no title"  charset="utf-8"> 
+	</head>
+	<body>
+		<div id="wrapper">
+			<p class="passed">Thanks for submitting this form. You have submitted this form {{request.session.submitted}} times now.</p>
+			<div id="content">
+				<h1>Submitted Info</h1>
+				<h2>Name:</h2>
+				<p>{{ name }}</p>
+				<h2>Dojo Location:</h2>
+				<p>{{ location }}</p>
+				<h2>Favorite Language:</h2>
+				<p>{{ language }}</p>
+				<h2>Comment:</h2>
+				<p>{{ comment }}</p>
+				<a href="/survey">Go Back</a>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Coding Dojo Survey</title>
+		<meta name="description" content="Coding Dojo Survey">
+{% load static %}
+		<link rel="stylesheet" href="{% static 'css/styles.css' %}" media="screen" title="no title"  charset="utf-8"> 
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="content">
+{% if messages %}
+	{% for message in messages %}
+				<p class="error">{{message}}</p>
+	{% endfor %}
+{% endif %}
+				<form action='/survey/process/' method='post'>
+{% csrf_token %}
+					<label for="name">Your Name:</label>
+{% if name is defined and name != "" %}
+					<input type="text" name="name" id="name" value="{{survey_results.name}}">
+{% else %}
+					<input type="text" name="name" id="name">
+{% endif %}
+					<label for="location">Dojo Location:</label>
+					<select name="location" id="location">
+						<option value="San Jose" selected>San Jose</option>
+						<option value="Seattle">Seattle</option>
+						<option value="Los Angeles">Los Angeles</option>
+						<option value="Dallas">Dallas</option>
+						<option value="Washington D.C.">Washington D.C.</option>
+						<option value="Chicago">Chicago</option>
+						<option value="Tulsa">Tulsa</option>
+					</select>
+					<label for="language">Favorite Language:</label>
+					<select name="language" id="language">
+						<option value="Python" selected>Python</option>
+						<option value="Java">Java</option>
+						<option value="C/C++">C/C++</option>
+						<option value="PHP">PHP</option>
+					</select>
+					<label for="comment">Comment (optional):</label>
+{% if comment is defined and comment != "" %}
+					<textarea name="comment" id="comment">{{comment}}</textarea>
+{% else %}
+					<textarea name="comment" id="comment"></textarea>
+{% endif %}
+					<input type="submit" value="Submit">
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

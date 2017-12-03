@@ -1,0 +1,94 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: arial;
+}
+
+h1 {
+	border-bottom: 1px solid black;
+	font-size: 1.4em;
+	margin: 10px 100px 10px 5px;
+	display: inline-block;
+}
+
+h2 {
+	width: 170px;
+	margin-top: 10px;
+	font-weight: normal;
+	display: inline-block;
+	font-size: 1.2em;
+}
+
+p {
+	display: inline-block;
+	margin-top: 5px;
+}
+
+label, input, select {
+	display: inline-block;
+}
+
+label {
+	margin: 10px;
+	width: 140px;
+}
+
+input[type="text"], select {
+	width: 125px;
+}
+
+input[type="submit"], a {
+	margin: 10px 0 0 238px;
+	padding: 2px 4px;
+	background-color: #76a5af;
+	color: white;
+	border: 1px solid black;
+	box-shadow: 1px 1px 2px black;
+}
+
+a {
+	display: inline-block;
+	width: 65px;
+	text-align: center;
+	margin: 55px 0 0 220px;
+	text-decoration: none;
+	padding: 2px 4px;
+	background-color: #76a5af;
+	color: white;
+	border: 1px solid black;
+	box-shadow: 1px 1px 2px black;
+}
+
+textarea {
+	width: 280px;
+	height: 75px;
+	margin-left: 10px;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 800px;
+}
+
+#content {
+	margin: 30px 0 0 70px;
+	padding: 15px;
+	width: 300px;
+	min-height: 300px;
+	border: 1px solid black;
+}
+
+.passed {
+	background-color: #b6d7a8;
+	margin: 40px 0 0 70px;
+	width: 300px;
+	padding: 15px;
+}
+
+.error {
+	color: red;
+	margin-left: 12px;
+}

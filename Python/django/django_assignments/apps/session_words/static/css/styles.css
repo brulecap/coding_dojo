@@ -1,0 +1,105 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: arial;
+}
+
+p {
+	display: block;
+	margin-top: 5px;
+}
+
+input {
+	display: inline-block;
+}
+
+label {
+	display: inline-block;
+	margin: 10px;
+	width: 140px;
+}
+
+label[for="word"] {
+	width: 190px;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.color {
+	width: 310px;
+}
+
+input[type="radio"] {
+	margin-left: 20px;
+}
+
+input[type="text"] {
+	margin: 0 0 10px 20px;
+	display: block;
+	width: 300px;
+	font-size: 1.5em;
+	border: 1px solid black;
+}
+
+input[type="submit"] {
+	margin: 10px 238px 0 0;
+	padding: 2px 4px;
+	background-color: #76a5af;
+	color: white;
+	border: 1px solid black;
+	box-shadow: 1px 1px 2px black;
+	cursor: pointer;
+}
+
+a {
+	margin-left: 290px;
+	font-size: 0.8em;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	padding: 2px 4px;
+	background-color: #ea989a;
+	color: white;
+	border: 1px solid black;
+	box-shadow: 1px 1px 2px black;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 800px;
+}
+
+#right_content {
+	border-left: 2px solid black;
+	min-height: 300px;
+	vertical-align: top;
+}
+
+#left_content, #right_content {
+	margin-top: 30px;
+	display: inline-block;
+	width: 380px;
+}
+
+#right_content p {
+	margin-left: 10px;
+}
+
+.red {
+	color: red;
+}
+
+.green {
+	color: green;
+}
+
+.blue {
+	color: blue;
+}
+
+.big {
+	font-size: 1.7em;
+}

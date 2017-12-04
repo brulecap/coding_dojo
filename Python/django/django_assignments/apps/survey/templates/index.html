@@ -18,7 +18,7 @@
 {% csrf_token %}
 					<label for="name">Your Name:</label>
 {% if name is defined and name != "" %}
-					<input type="text" name="name" id="name" value="{{survey_results.name}}">
+					<input type="text" name="name" id="name" value="{{name}}">
 {% else %}
 					<input type="text" name="name" id="name">
 {% endif %}

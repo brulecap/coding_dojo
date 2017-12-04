@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
+	url(r'^session_words/', include('apps.session_words.urls')),
 	url(r'^survey/', include('apps.survey.urls')),
 	url(r'^random_word/', include('apps.random_word.urls')),
 	url(r'^admin/', admin.site.urls)

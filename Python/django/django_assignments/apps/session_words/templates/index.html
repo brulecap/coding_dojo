@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Coding Dojo Session Words</title>
+		<meta name="description" content="Coding Dojo Session Words">
+{% load static %}
+		<link rel="stylesheet" href="{% static 'css/styles.css' %}" media="screen" title="no title"  charset="utf-8"> 
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="left_content">
+{% if messages %}
+	{% for message in messages %}
+				<p class="red">{{message}}</p>
+	{% endfor %}
+{% endif %}
+				<form action='/session_words/process/' method='post'>
+{% csrf_token %}
+					<label for="word">Add a new word</label>
+					<input type="text" name="word" id="word">
+					<p>Choose color</p>
+					<input type="radio" name="color" id="red" value="red">
+					<label class="color" for="red">Red</label>
+					<input type="radio" name="color" id= "green" value="green">
+					<label class="color" for="green">Green</label>
+					<input type="radio" name="color" id="blue" value="blue">
+					<label class="color" for="blue">Blue</label>
+					<input type="checkbox" name="big" id="big" value="big">
+					<label for="big">show in BIG fonts!</label>
+					<input type="submit" value="Add to Session">
+				</form>
+			</div>
+			<div id="right_content">
+				<a href="/session_words/clear/">Clear Session</a>
+{% if request.session.word_list %}
+	{% for word in request.session.word_list %}
+				<p class="{{word.color}} {{word.text_size}}">{{word.word}}</p>
+	{% endfor %}
+{% endif %}
+			</div>
+		</div>
+	</body>
+</html>

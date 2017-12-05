@@ -1,0 +1,9 @@
+.checkout p {
+	margin:20px;
+}
+
+.checkout a {
+	display: block;
+	margin-bottom: 15px;
+	width: 90px;
+}

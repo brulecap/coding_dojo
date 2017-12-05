@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="description" content="Amadon Store">
+		<title>Amadon Store</title>
+{% load static %}
+		<link rel="stylesheet" href="{% static 'css/styles.css' %}" media="screen" title="no title"  charset="utf-8"> 
+		<link rel="stylesheet" href="{% static 'css/amadon.css' %}" media="screen" title="no title"  charset="utf-8"> 
+	</head>
+	<body>
+		<div id="wrapper">
+			<table>
+				<caption>Amadon Store</caption>
+				<thead>
+					<tr class="odd">
+						<th class="name">Item</th>
+						<th class="name">Price</th>
+						<th class="number">Quantity</th>
+						<th class="action">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="even">
+						<form action="/amadon/buy/" method="POST">
+{% csrf_token %}
+							<td class="name">Dojo Tshirt</td>
+							<td class="name">$19.99</td>
+							<td class="number">
+								<select name="quantity">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</td>
+							<td class="action">
+								<input type="hidden" name="id" value="1">
+								<input type="submit" value="Buy">
+							</td>
+						</form>
+					</tr>
+					<tr class="odd">
+						<form action="/amadon/buy/" method="POST">
+{% csrf_token %}
+							<td class="name">Dojo Sweater</td>
+							<td class="name">$29.99</td>
+							<td class="number">
+								<select name="quantity">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</td>
+							<td class="action">
+								<input type="hidden" name="id" value="2">
+								<input type="submit" value="Buy">
+							</td>
+						</form>
+					</tr>
+					<tr class="even">
+						<form action="/amadon/buy/" method="POST">
+{% csrf_token %}
+							<td class="name">Dojo Cup</td>
+							<td class="name">$4.99</td>
+							<td class="number">
+								<select name="quantity">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</td>
+							<td class="action">
+								<input type="hidden" name="id" value="3">
+								<input type="submit" value="Buy">
+							</td>
+						</form>
+					</tr>
+					<tr class="odd">
+						<form action="/amadon/buy/" method="POST">
+{% csrf_token %}
+							<td class="name">Algorithm Book</td>
+							<td class="name">$49.99</td>
+							<td class="number">
+								<select name="quantity">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</td>
+							<td class="action">
+								<input type="hidden" name="id" value="4">
+								<input type="submit" value="Buy">
+							</td>
+						</form>
+					</tr>
+					<tr class="even">
+						<td class="name"></td>
+						<td class="name"></td>
+						<td class="number"></td>
+						<td class="action"></td>
+					</tr>
+					<tr class="odd">
+						<td class="name"></td>
+						<td class="name"></td>
+						<td class="number"></td>
+						<td class="action"></td>
+					</tr>
+					<tr class="even">
+						<td class="name"></td>
+						<td class="name"></td>
+						<td class="number"></td>
+						<td class="action"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

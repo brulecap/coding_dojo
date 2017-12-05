@@ -1,0 +1,66 @@
+h1 {
+	font-size: 1.6em;
+	margin:20px 0;
+}
+
+form {
+	display: inline-block;
+}
+
+label {
+	display: block;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 800px;
+	min-height: 300px;
+}
+
+/* Tables */
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	margin-bottom: 50px;
+}
+
+caption {
+	text-align: left;
+	margin: 10px;
+	font-size: 1.5em;
+}
+
+thead {
+	background-color: #cccccc;
+}
+
+tr {
+	height: 30px;
+}
+
+td, th {
+	padding: 0 10px 0 10px;
+	text-align: left;
+}
+
+.number, .action {
+	text-align:center;
+}
+
+.number {
+	border-right: 1px solid black;
+	width: 90px;
+}
+
+.odd {
+	background-color: #eee;
+}
+
+.even {
+	background-color: white;
+}
+
+.name {
+	border-right: 1px solid black;
+	width: 140px;
+}

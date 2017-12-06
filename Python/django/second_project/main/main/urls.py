@@ -16,5 +16,9 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 urlpatterns = [
-	url(r'^', include('apps.blogs.urls')) # Use blogs urls
+	url(r'^\Z', include('apps.blogs.urls')), #/
+	url(r'^blogs/', include('apps.blogs.urls')), #/blogs/*
+	url(r'^surveys/', include('apps.surveys.urls')), #/sureveys/*
+	url(r'^users/', include('apps.users.urls')), #/users/*
+	url(r'^', include('apps.users.urls')) #*
 ]

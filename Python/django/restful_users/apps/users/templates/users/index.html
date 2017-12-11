@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="description" content="Restful Users">
+		<title>Restful Users</title>
+{% load static %}
+		<link rel="stylesheet" href="{% static 'users/css/styles.css' %}" media="screen" title="no title"  charset="utf-8"> 
+		<link rel="stylesheet" href="{% static 'users/css/users.css' %}" media="screen" title="no title"  charset="utf-8"> 
+	</head>
+	<body>
+		<div id="wrapper">
+			<table>
+				<caption>Users</caption>
+				<thead>
+					<tr>
+						<th class="number">id</th>
+						<th class="name">Full Name</th>
+						<th class="number">Email</th>
+						<th class="action">Created At</th>
+						<th class="action">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+{% for user in users %}
+					<tr class="{% cycle 'odd' 'even' %}">
+						<td class="number">{{user.id}}</td>
+						<td class="name">
+							<a class="link" href="{% url 'users_show' id=user.id %}">{{user.first_name}} {{user.last_name}}</a>
+						</td>
+						<td class="number">{{user.email}}</td>
+						<td>{{user.created_at}}</td>
+						<td class="action">
+							<a class="link" href="{% url 'users_show' id=user.id %}">Show</a>
+							<a class="link" href="{% url 'users_edit' id=user.id %}">Edit</a>
+							<a class="link" href="{% url 'users_destroy' id=user.id %}">Delete</a>
+						</td>
+					</tr>
+{% endfor %}
+				</tbody>
+			</table>
+			<a class="link" href="{% url 'users_new' %}">Add a new user</a>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="description" content="New Restful User">
+		<title>New Restful User</title>
+{% load static %}
+		<link rel="stylesheet" href="{% static 'users/css/styles.css' %}" media="screen" title="no title"  charset="utf-8"> 
+		<link rel="stylesheet" href="{% static 'users/css/users.css' %}" media="screen" title="no title"  charset="utf-8"> 
+	</head>
+	<body>
+		<div id="wrapper">
+{% if messages %}
+			<ul class="messages">
+	{% for message in messages %}
+				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	{% endfor %}
+			</ul>
+{% endif %}
+			<h1>Add a new user</h1>
+			<form action="{% url 'users_create' %}" method="POST">
+{% csrf_token %}
+				<label for="first_name">First Name:</label>
+				<input type="text" name="first_name" id="first_name" {% if first_name %} value="{{first_name}}"{% endif %}>
+				<label for="last_name">Last Name:</label>
+				<input type="text" name="last_name" id="last_name" {% if last_name %} value="{{last_name}}"{% endif %}>
+				<label for="email">Email:</label>
+				<input type="email" name="email" id="email" {% if email %} value="{{email}}"{% endif %}>
+				<input type="submit" value="Create">
+				<a class="link" href="{% url 'users_index' %}">Go Back</a>
+			</form>
+		</div>
+	</body>
+</html>

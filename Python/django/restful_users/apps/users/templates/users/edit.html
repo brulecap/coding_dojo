@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="description" content="Edit Restful User">
+		<title>Edit Restful User</title>
+{% load static %}
+		<link rel="stylesheet" href="{% static 'users/css/styles.css' %}" media="screen" title="no title"  charset="utf-8"> 
+		<link rel="stylesheet" href="{% static 'users/css/users.css' %}" media="screen" title="no title"  charset="utf-8"> 
+	</head>
+	<body>
+		<div id="wrapper">
+{% if messages %}
+			<ul class="messages">
+	{% for message in messages %}
+				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	{% endfor %}
+			</ul>
+{% endif %}
+{% if user %}
+			<h1>Edit User {{user.id}}</h1>
+			<form action="{% url 'users_update'%}" method="POST">
+{% csrf_token %}
+				<label for="first_name">First Name:</label>
+				<input type="text" name="first_name" id="first_name" value="{{user.first_name}}">
+				<label for="last_name">Last Name:</label>
+				<input type="text" name="last_name" id="last_name" value="{{user.last_name}}">
+				<label for="email">Email:</label>
+				<input type="email" name="email" id="email" value="{{user.email}}">
+				<input type="hidden" name="id" value="{{user.id}}">
+				<input type="submit" value="Update">
+				<a class="link" href="{% url 'users_index' %}">Go Back</a>
+			</form>
+{% else %}
+			<p class="error">User not found</p>
+{% endif %}
+		</div>
+	</body>
+</html>

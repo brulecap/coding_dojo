@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="description" content="Course Administration">
+		<title>Course Administration</title>
+{% load static %}
+		<link rel="stylesheet" href="{% static 'course_admin/css/styles.css' %}" media="screen" title="no title"  charset="utf-8"> 
+		<link rel="stylesheet" href="{% static 'course_admin/css/courses.css' %}" media="screen" title="no title"  charset="utf-8"> 
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>Add a new course</h1>
+{% if messages %}
+			<ul class="messages">
+	{% for message in messages %}
+				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	{% endfor %}
+			</ul>
+{% endif %}
+
+			<form action="{% url 'course_admin_new' %}" method="POST">
+{% csrf_token %}
+				<label for="name">Name:</label>
+				<input type="text" name="name" id="name" {% if name %} value="{{name}}"{% endif %}>
+				<label for="description">Description:</label>
+				<textarea name="description" id="description" placeholder="Insert course description. It must be more than 15 characters.">{% if description %}{{description}}{% endif %}</textarea>
+				<input id="new" type="submit" value="Add">
+			</form>
+{% for course in courses %}
+			<table>
+				<caption>Courses</caption>
+				<thead>
+					<tr>
+						<th class="name">Course Name</th>
+						<th class="name">Description</th>
+						<th class="name">Date Added</th>
+						<th class="action">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="{% cycle 'odd' 'even' %}">
+						<td>{{course.name}}</td>
+						<td>{{course.descriptions.desc}}</td>
+						<td>{{course.created_at}}</td>
+						<td class="action">
+							<a class="link" href="{% url 'course_admin_destroy' id=course.id %}">Remove</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+{% empty %}
+			<h2 class="error">Course database is empty</h2>
+{% endfor %}
+		</div>
+	</body>
+</html>

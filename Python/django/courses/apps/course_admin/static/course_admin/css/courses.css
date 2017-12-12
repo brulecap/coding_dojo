@@ -1,0 +1,139 @@
+h1 {
+	font-size: 1.6em;
+	margin:20px 0;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 800px;
+	min-height: 300px;
+}
+
+/* Tables */
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	margin-bottom: 50px;
+}
+
+caption {
+	text-align: left;
+	margin: 10px;
+	font-size: 1.5em;
+}
+
+thead {
+	background-color: #cccccc;
+	border-bottom: 1px solid black;
+}
+
+tr {
+	height: 30px;
+}
+
+td, th {
+	padding: 0 10px 0 10px;
+	text-align: left;
+}
+
+.number, .action {
+	text-align:center;
+}
+
+.action {
+	width: 30px;
+}
+
+.number {
+	border-right: 1px solid black;
+	width: 30px;
+}
+
+.odd {
+	background-color: #eee;
+}
+
+.even {
+	background-color: white;
+}
+
+.name {
+	border-right: 1px solid black;
+	width: 140px;
+}
+
+input[type="text"] {
+	margin-bottom: 10px;
+}
+
+/* Styles for messages */
+.error {
+	color:red;
+}
+
+h2.error {
+	text-align: center;
+	width: 100%;
+	margin: 30px 0;
+}
+
+ul {
+	list-style-type: none;
+}
+
+li {
+	margin-top: 5px;
+}
+
+/* Form styles and override some submit button preferences */
+form {
+	display: inline-block;
+}
+
+label {
+	display: inline-block;
+	width: 100px;
+	vertical-align: top;
+}
+textarea, input[type="text"] {
+	margin-right: 200px;
+	width: 450px;
+}
+
+textarea {
+	height: 75px;
+}
+
+input[type="submit"] {
+	margin: 10px 10px 0 0;
+}
+
+#yes {
+	background-color: #990000;
+}
+
+#no {
+	background-color: #cccccc;
+	color:black;
+	margin: 0 20px 0 50px;
+}
+
+#new {
+	background-color: #009e0f;
+	margin-left: 520px;
+}
+
+h2, p {
+	display: inline-block;
+}
+
+h2 {
+	font-weight: normal;
+	font-size: 1.1em;
+	width: 100px;
+	margin-bottom: 15px;
+}
+
+p {
+	width:700px;
+}

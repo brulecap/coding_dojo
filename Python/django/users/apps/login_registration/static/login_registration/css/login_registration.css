@@ -1,0 +1,45 @@
+h1 {
+	font-size: 1.4em;
+	margin: 10px 100px 10px 5px;
+}
+
+p.success {
+	color: green;
+	margin-bottom: 15px;
+}
+
+label, input, select {
+	display: inline-block;
+}
+
+label {
+	margin: 10px;
+	width: 140px;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="email"], select {
+	width: 135px;
+	border: 1px solid black;
+}
+
+
+#wrapper {
+	margin: 30px 0 0 70px;
+	padding: 15px;
+	width: 400px;
+	min-height: 300px;
+}
+
+.error {
+	color: red;
+	margin-left: 12px;
+}
+
+input[type="submit"].register {
+	background-color: #597eaa;
+	margin: 10px 0 10px 235px;
+}
+
+ul {
+	list-style-type: none;
+}

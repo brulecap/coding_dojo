@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="description" content="Login Registration Form">
+	<title>Login Registration Form</title>
+{% load static %}
+	<link rel="stylesheet" href="{% static 'login_registration/css/styles.css' %}" media="screen" title="no title"> 
+	<link rel="stylesheet" href="{% static 'login_registration/css/login_registration.css' %}" media="screen" title="no title"> 
+  </head>
+	<body>
+		<div id="wrapper">
+			<h2>Registration</h2>
+{% if messages %}
+			<ul class="messages">
+	{% for message in messages %}
+		{% if message.extra_tags == "registration_error" %}
+				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		{% endif %}
+	{% endfor %}
+			</ul>
+{% endif %}
+			<form action='{% url 'register' %}' method='post'>
+{% csrf_token %}
+				<label for="first_name">First Name:</label>
+				<input type="text" name="first_name" id="first_name" {% if request.session.first_name %} value="{{request.session.first_name}}"{% endif %}>
+				<label for="last_name">Last Name:</label>
+				<input type="text" name="last_name" id="last_name" {% if request.session.last_name %} value="{{request.session.last_name}}"{% endif %}>
+				<label for="email">Email:</label>
+				<input type="email" name="email" id="email" {% if request.session.email %} value="{{request.session.email}}"{% endif %}>
+				<label for="birthday">Birthday:</label>
+				<input type="date" name="birthday" id="birthday" {% if request.session.birthday %} value="{{request.session.birthday}}"{% endif %}>
+				<label for="password">Password:</label>
+				<input type="password" name="password" id="password">
+				<label for="confirm">Confirm password:</label>
+				<input type="password" name="confirm" id="confirm">
+				<input class="register" type="submit" value="Register">
+			</form>
+			<h2>Login</h2>
+{% if messages %}
+			<ul class="messages">
+	{% for message in messages %}
+		{% if message.extra_tags == "login_error" %}
+				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		{% endif %}
+	{% endfor %}
+			</ul>
+{% endif %}
+			<form action='{% url 'login' %}' method='post'>
+{% csrf_token %}
+				<label for="login_email">Email:</label>
+				<input type="email" name="email" id="login_email" {% if email %} value="{{email}}"{% endif %}>
+				<label for="login_password">Password:</label>
+				<input type="password" name="password" id="login_password">
+				<input class="register" type="submit" value="Login">
+			</form>
+
+		</div>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="description" content="Login Registration Success">
+	<title>Login Registration Success</title>
+{% load static %}
+	<link rel="stylesheet" href="{% static 'login_registration/css/styles.css' %}" media="screen" title="no title"> 
+	<link rel="stylesheet" href="{% static 'login_registration/css/login_registration.css' %}" media="screen" title="no title"> 
+  </head>
+	<body>
+		<div id="wrapper">
+{% if request.session.name %}
+	{% if request.session.registered or request.session.logged_in %}
+			<h1>Success! Welcome {{request.session.name}}!</h1>
+			<p class="success">Successfully {% if request.session.registered %}registered{% else %}logged in{% endif %}!</p>
+	{% endif %}
+{% else %}
+			<p>We apologize, but something weird happened. Either your session expired or you reached this page accidentally.</p>
+{% endif %}
+			<a href="{% url 'index' %}">Go Back</a>
+		</div>
+	</body>
+</html>

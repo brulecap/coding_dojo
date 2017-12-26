@@ -1,0 +1,7 @@
+{% if notes %}
+	{% for note in notes %}
+				<div class="post">
+					<p>{{note.note}}</p>
+				</div>
+	{% endfor %}
+{% endif %}

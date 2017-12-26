@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="description" content="Ajax Post Assignment">
+		<title>Ajax Post Assignment</title>
+{% load static %}
+		<link rel="stylesheet" href="{% static 'post/css/styles.css' %}" media="screen" title="no title"  charset="utf-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="posts">
+			</div>
+			<form id="create_form" action="{% url 'all_html' %}" method="POST">
+				{% csrf_token %}
+				<label for="note">Add a note:</label>
+				<textarea name="note" id="note" placeholder="Enter note..."></textarea>
+				<input type="submit" value="Post It!">
+			</form>
+		<script>
+			$('#create_form').submit(function(e){
+				e.preventDefault()
+				console.log('Sending Ajax request to', $(this).attr('action'))
+				console.log('Submitting the following data', $(this).serialize())
+				$.ajax({
+		  			url: $(this).attr('action'), /* Where should this go? */
+		  			method: 'post', /* Which HTTP verb? */
+		  			data: $(this).serialize(), /* Any data to send along? */
+		  			success: function(serverResponse) { /* What code should we run when the server responds? */
+						$('#posts').html(serverResponse)
+		  			}
+				})
+	  		});
+		</script>
+		</div>
+	</body>
+</html>

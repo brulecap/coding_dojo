@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Belt Review</title>
+		<meta name="description" content="Belt Review">
+{% include "reviews/head.html" %}
+	</head>
+	<body>
+		<header>
+			<a href="{% url 'books' %}">Home</a>
+			<a href="{% url 'add' %}">Add Book and Review</a>
+			<a href="{% url 'signout' %}">Logout</a>
+		</header>
+		<div id="wrapper" class="user">
+{% if user %}
+			<div>
+				<h1>User Alias: {{user.alias}}</h1>
+				<h2>Name:{{user.name}}</h2>
+				<h2>Email:{{user.email}}</h2>
+				<h2>Total Reviews:{{user.review_creator.count}}</h2>
+				<h2>Posted Reviews on the following books:<h2>
+	{% for review in user.review_creator.all %}
+				<a href="{% url 'books' id=review.book.id %}">{{review.book.title}}</a>
+	{% endfor %}
+			</div>
+{% else %}
+			<p>User does not exist.</p>
+{% endif %}
+		</div>
+	</body>
+</html>

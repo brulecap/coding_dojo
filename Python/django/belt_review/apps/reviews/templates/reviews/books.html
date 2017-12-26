@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Belt Review</title>
+		<meta name="description" content="Belt Review">
+{% include "reviews/head.html" %}
+	</head>
+	<body>
+		<header>
+			<h1>Welcome {{request.session.name}}!</h1>
+			<a href="{% url 'add' %}">Add Book and Review</a>
+			<a href="{% url 'signout' %}">Logout</a>
+		</header>
+		<div id="wrapper" class="register">
+{% if reviews %}
+			<div class="index">
+				<h2>Recent Book Reviews:</h2>
+	{% for review in reviews|slice:":3" %}
+					<a href="{% url 'books' id=review.book.id %}">{{review.book.title}}</a>
+					<h3>Rating: {{review.rating}}</h3>
+					<p><a href="{% url 'user' id=review.user.id %}">{{review.user.name}}</a> says: {{review.review}}</p>
+					<p>Posted on {{review.created_at}}</p>
+	{% endfor %}
+			</div>
+			<div class="index">
+				<h2>Other Books with Reviews:</h2>
+	{% for review in reviews|slice:"3:" %}
+				<a href="{% url 'books' id=review.book.id %}">{{review.book.title}}</a>
+	{% endfor %}
+			</div>
+{% else %}
+			<p>Sorry we did not find any book reviews.</p>
+{% endif %}
+		</div>
+	</body>
+</html>

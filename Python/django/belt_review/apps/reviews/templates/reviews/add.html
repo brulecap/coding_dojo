@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Belt Review</title>
+		<meta name="description" content="Belt Review">
+{% include "reviews/head.html" %}
+	</head>
+	<body>
+		<head>
+			<a href="{% url 'books' %}">Home</a>
+			<a href="{% url 'signout' %}">Logout</a>
+		<div>
+	{% if messages %}
+			<ul class="messages">
+		{% for message in messages %}
+				<li class="{{message.tags}}">{{message}}</li>
+		{% endfor %}
+			</ul>
+	{% endif %}
+		</div>
+		<div id="wrapper" class="register">
+			<h1>Add a New Book Title and Review</h1>
+{% if request.session.register %}
+	{% if messages %}
+			<ul class="messages">
+		{% for message in messages %}
+			{% if message.tags == 'success' %}
+				<li class="{{message.tags}}">{{message}}</li>
+			{% endif %}
+		{% endfor %}
+			</ul>
+	{% endif %}
+{% endif %}
+			<form action="{% url 'add' %}" method='post'>				
+{% csrf_token %}
+				<label for="name">Book Title:</label>
+				<input type="text" name="title" id="name" {% if request.session.title %} value="{{request.session.title}}"{% endif %}>
+				<h2>Author:</h2>
+{% if authors %}
+				<label for="author">Choose from the list:</label>
+				<select name="author">
+					<option disabled selected value=""> -- select an author -- </option>
+	{% for author in authors %}
+					<option value="{{author.name}}">{{author.name}}</option>
+	{% endfor %}
+				</select>
+{% endif %}
+				<label for="new_author">Or add a new author:</label>
+				<input type="text" name="new_author" id="=new_author" {% if request.session.new_author %} value="{{request.session.new_author}}"{% endif %}>
+				<label for="review">Review:</label>
+				<textarea name="review" id="review">{% if request.session.review %}{{request.session.review}}"{% endif %}</textarea>
+				<label for="rating">Rating:</label>
+				<select name="rating">
+					<option disabled selected value=""> -- select a rating -- </option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+				<input type="submit" value="Add Book and Review">
+			</form>
+		</div>
+	</body>
+</html>

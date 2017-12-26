@@ -1,0 +1,55 @@
+/* Form styles */
+label, input, select {
+	display: block;
+}
+
+label {
+	margin: 10px 0 5px 0;
+	width: 140px;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="email"], select {
+	width: 170px;
+	border: 1px solid black;
+}
+
+/* wrapper and content */
+#wrapper {
+	margin: 0 auto;
+	width: 850px;
+	min-height: 300px;
+}
+
+.index {
+	display: inline-block;
+	width: 45%;
+	vertical-align: top;
+}
+
+.content h3 {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/* Styles for messages */
+.error {
+	color: red;
+}
+
+.success {
+	color: green;
+}
+
+ul {
+	list-style-type: none;
+}
+
+header h1 {
+	font-size: 18px;
+	display: inline-block;
+	margin-right: 500px;
+}
+
+header {
+	text-align: center;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Belt Review</title>
+		<meta name="description" content="Belt Review">
+{% include "reviews/head.html" %}
+	</head>
+	<body>
+		<header><h1>Welcome</h1></header>
+		<div>
+	{% if messages %}
+			<ul class="messages">
+		{% for message in messages %}
+				<li class="{{message.tags}}">{{message}}</li>
+		{% endfor %}
+			</ul>
+	{% endif %}
+		</div>
+		<div id="wrapper" class="register">
+			<div class="index">
+				<h2>Register</h2>
+{% if request.session.register %}
+	{% if messages %}
+				<ul class="messages">
+		{% for message in messages %}
+			{% if message.tags == 'success' %}
+					<li class="{{message.tags}}">{{message}}</li>
+			{% endif %}
+		{% endfor %}
+				</ul>
+	{% endif %}
+{% endif %}
+				<form action="{% url 'register' %}" method='post'>
+				
+{% csrf_token %}
+					<label for="name">Name:</label>
+					<input type="text" name="name" id="name" {% if request.session.name %} value="{{request.session.name}}"{% endif %}>
+					<label for="alias">Alias:</label>
+					<input type="text" name="alias" id="alias" {% if request.session.alias %} value="{{request.session.alias}}"{% endif %}>
+					<label for="email">Email:</label>
+					<input type="email" name="email" id="email" {% if request.session.email %} value="{{request.session.email}}"{% endif %}>
+					<label for="password">Password:</label>
+					<input type="password" name="password" id="password">
+					<p>Password should be at least 8 characters.</p>
+					<label for="confirm">Confirm password:</label>
+					<input type="password" name="confirm" id="confirm">
+					<input type="submit" value="Register">
+				</form>
+			</div>
+			<div class="index">
+				<h2>Login</h2>
+{% if request.session.login %}
+	{% if messages %}
+				<ul class="messages">
+		{% for message in messages %}
+					<li class="{{message.tags}}">{{message}}</li>
+		{% endfor %}
+				</ul>
+	{% endif %}
+{% endif %}
+				<form action='{% url 'signin' %}' method='post'>
+{% csrf_token %}
+					<label for="email">Email:</label>
+					<input type="email" name="email" id="email" {% if email %} value="{{email}}"{% endif %}>
+					<label for="login_password">Password:</label>
+					<input type="password" name="password" id="login_password">
+					<input type="submit" value="Login">
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

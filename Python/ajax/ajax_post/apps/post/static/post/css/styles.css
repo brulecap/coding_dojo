@@ -38,8 +38,12 @@ a.link {
 /* End my personal resets and favorite styles */
 
 .post {
-	display: inline-block;
 	width: 30%;
+	margin: 10px 0 10px 100px;
 	min-height: 75px;
 	border: 1px solid black;
+}
+
+#create {
+	margin: 10px 0 10px 100px;
 }

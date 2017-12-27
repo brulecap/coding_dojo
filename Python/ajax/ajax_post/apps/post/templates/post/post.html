@@ -1,7 +1,18 @@
 {% if notes %}
 	{% for note in notes %}
 				<div class="post">
-					<p>{{note.note}}</p>
+					<h2>{{note.title}}</h2>
+					<form id="delete" action="{% url 'delete' %}" method="POST">
+						{% csrf_token %}
+						<input type="hidden" name="id" value="{{note.id}}">
+						<input type="submit" value="Delete">
+					</form>
+					<form id="update" action="{% url 'update' %}" method="POST">
+						{% csrf_token %}
+						<input type="hidden" name="id" value="{{note.id}}">
+						<textarea name="note" placeholder="Enter description here...">{% if note.note %}{{note.note}}{% endif %}</textarea>
+						<input id="up" type="submit" value="{% if note.note %}Update description{% else %}Add description{% endif %}">
+					</form>
 				</div>
 	{% endfor %}
 {% endif %}
